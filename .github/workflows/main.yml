@@ -18,11 +18,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - id: release_number
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
-    - id: release_number
       uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -50,4 +50,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: ${{ steps.release_number.outputs.args }}    
+        args: ${{ steps.release_number.outputs }}    
