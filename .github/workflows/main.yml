@@ -27,7 +27,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: false
-      
+        
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/} 
     
     
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -50,4 +53,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: $V{{ github.ref }}    
+        args: $V{{ steps.get_version.outputs.VERSION }}    
