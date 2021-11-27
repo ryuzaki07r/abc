@@ -18,7 +18,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - id: release_number
+    #- id: release_number
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
@@ -50,4 +50,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: ${{ steps.release_number.outputs }}    
+        args: $V{{ github.ref }}    
