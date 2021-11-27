@@ -49,4 +49,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: V${{ github.new_tag{} }}    
+        args: V${{ github.ref.new_tag }}    
