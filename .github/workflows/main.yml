@@ -55,4 +55,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: $V{{ steps.get_version.outputs.VERSION }}    
+        args: ${{ steps.get_version.outputs }}    
