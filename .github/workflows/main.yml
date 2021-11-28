@@ -28,7 +28,7 @@ jobs:
       uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
+        WITH_V: false
         DRY_RUN: true    
     
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -63,4 +63,4 @@ jobs:
       uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true   
+        WITH_V: false  
