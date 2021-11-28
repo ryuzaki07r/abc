@@ -52,4 +52,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: v${{ $RELEASE_VERSION }}    
+        args: ${{ env.RELEASE_VERSION }}    
