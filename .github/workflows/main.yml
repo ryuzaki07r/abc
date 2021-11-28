@@ -28,8 +28,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        #run: echo ::set-env name=releasev::$(echo ${GITHUB_REF:10})
-    
+        DRY_RUN: true    
     
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
