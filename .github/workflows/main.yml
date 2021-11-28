@@ -42,7 +42,7 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
     - name: Publish package
       run: | 
-          mvn release:update-versions -DautoVersionSubmodules=true
+          mvn --batch-mode release:update-versions -DdevelopmentVersion={{ steps.release.outputs.new_tag }}-SNAPSHOT
           mvn --batch-mode deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,4 +53,14 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: ${{ steps.release.outputs.new_tag }}   
+        args: ${{ steps.release.outputs.new_tag }}  
+        
+        
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.36.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true   
