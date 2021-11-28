@@ -28,6 +28,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: echo ::set-output name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
+        WITH_V: true
         
     
     
