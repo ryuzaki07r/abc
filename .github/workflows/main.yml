@@ -28,7 +28,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        
+        run: echo ::set-env name=releasev::$(echo ${GITHUB_REF:10})
     
     
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -51,4 +51,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: ${{ input.release }}    
+        args: ${{ github.env.releasev }}    
