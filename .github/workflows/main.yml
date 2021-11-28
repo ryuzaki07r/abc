@@ -52,4 +52,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: v0.${{ github.run_number }}.0   
+        args: ${{ new_tag }}   
