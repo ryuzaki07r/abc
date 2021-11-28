@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    tags: 'v*.*.*'   
+    
  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -27,7 +27,6 @@ jobs:
       uses: anothrNick/github-tag-action@1.36.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       # run: echo ::set-output name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
         WITH_V: true
         
     
@@ -52,4 +51,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        args: ${{ GITHUB_REF.tagname }}    
+        args: ${{ tagname }}    
